@@ -38,3 +38,14 @@ def registerUser():
     print("successfully registered, enter any key to continue")
     input()
     alreadyRegisteredMenu()
+
+def optionselect():
+    print("select option : ")
+    print("(d)eposit money\n(w)ithdraw money\n(c)heck balance\n(e)xit")
+    option = input()
+    match option:
+        case "d" : deposit()
+        case "w" : withdraw()
+        case "c" : checkBalance()
+        case _ : alreadyRegisteredMenu() 
+    
