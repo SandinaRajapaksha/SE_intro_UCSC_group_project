@@ -29,3 +29,12 @@ def passcheck():
         print("incorrect password, enter any key to contiue")
         input()
         alreadyRegisteredMenu()
+
+def registerUser():
+    newUsername = input("enter new username")
+    newPassword = input("enter new password")
+    userobject = UserClass(newUsername,newPassword)
+    license.append(userobject)
+    print("successfully registered, enter any key to continue")
+    input()
+    alreadyRegisteredMenu()
