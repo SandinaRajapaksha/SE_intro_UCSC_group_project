@@ -1,10 +1,10 @@
 #user class
 class UserClass:
     name : "default" # type: ignore
-    password : 1234
+    passwordUsr : 1234
     balance : 0
 
-
+listOfusers = []
 
 
 def alreadyRegisteredMenu():
@@ -17,4 +17,15 @@ def alreadyRegisteredMenu():
 def passcheck():
     userName = input("enter user name : ")
     password = input("enter password : ")
-
+    for i in listOfusers:
+        if userName == i:
+            break
+        else :
+            passcheck()
+    
+    if password == userName.passwordUsr:
+        optionselect()
+    else:
+        print("incorrect password, enter any key to contiue")
+        input()
+        alreadyRegisteredMenu()
