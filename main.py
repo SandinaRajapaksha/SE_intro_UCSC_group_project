@@ -3,7 +3,7 @@ def addUserToDB(name,passw):
     db[name] = {"PSWD":passw,"BLNC": 0}
 
 def optionMenu(userName):
-    option = input("enter option :")
+    option = input("Enter option : \n (w)ithdraw\n (d)eposit\n (s)how balance\n (e)xit\n enter option : ")
     match option:
         case "s" : 
             print(db[userName]["BLNC"])
@@ -23,7 +23,8 @@ def optionMenu(userName):
                     optionMenu(userName)
                 else:
                     print("insufficient balance ...") 
-        
+                    optionMenu(userName)
+
         case "d" :
             depositAmount = int(input("Enter amount to deposit : "))
             db[userName]["BLNC"] = db[userName]["BLNC"] + depositAmount 
@@ -31,7 +32,11 @@ def optionMenu(userName):
             print("available balance is : ", db[userName]["BLNC"] )
             input("Enter any key to continue ....")
             optionMenu(userName)
-        case _ : main()
+        case "e" : main()
+        case _ : 
+            print("invalid input")
+            optionMenu(userName)
+
 
 def passchecker(userName, password) :
     if userName in db:
