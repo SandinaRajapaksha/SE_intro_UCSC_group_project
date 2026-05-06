@@ -4,17 +4,26 @@ def addUserToDB(name,passw):
     print(db)
 
 def optionMenu(userName):
-    option = input()
+    option = input("enter option :")
     match option:
-        case "s" : print(db[userName]["BLNC"])
+        case "s" : 
+            print(db[userName]["BLNC"])
+            input("enter any key : ")
+            optionMenu(userName)
         case "w" : 
-            withdrawAmount = input("Enter amount to withdraw : ")
-            if withdrawAmount <=  db[userName]["BLNC"] :
-                db[userName]["BLNC"] = db[userName]["BLNC"] - withdrawAmount
-                print("withdraw successfull, amount withdrawed : ",withdrawAmount)
-                print("available balance is : ", db[userName]["BLNC"] )
-            else:
-               print("insufficient balance ...") 
+            flag = True
+            while flag:
+                withdrawAmount = int(input("Enter amount to withdraw : "))
+                if withdrawAmount <=  db[userName]["BLNC"] :
+                    db[userName]["BLNC"] = db[userName]["BLNC"] - withdrawAmount
+                    print("withdraw successfull, amount withdrawed : ",withdrawAmount)
+                    print("available balance is : ", db[userName]["BLNC"] )
+                    flag = False
+                    #time 3s
+                    input()
+                    optionMenu(userName)
+                else:
+                    print("insufficient balance ...") 
 
         case _ : main()
 
@@ -43,7 +52,7 @@ def main():
             pscheckFlag = passchecker(userName,password)
             if pscheckFlag == True:
                 break
-        optionMenu(userName,password)
+        optionMenu(userName)
 
 main()
 
