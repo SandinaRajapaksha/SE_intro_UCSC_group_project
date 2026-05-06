@@ -2,7 +2,22 @@ db = {}
 def addUserToDB(name,passw):
     db[name] = {"PSWD":passw,"BLNC": 0}
     print(db)
-    
+
+def optionMenu(userName):
+    option = input()
+    match option:
+        case "s" : print(db[userName]["BLNC"])
+        case "w" : 
+            withdrawAmount = input("Enter amount to withdraw : ")
+            if withdrawAmount <=  db[userName]["BLNC"] :
+                db[userName]["BLNC"] = db[userName]["BLNC"] - withdrawAmount
+                print("withdraw successfull, amount withdrawed : ",withdrawAmount)
+                print("available balance is : ", db[userName]["BLNC"] )
+            else:
+               print("insufficient balance ...") 
+
+        case _ : main()
+
 def passchecker(userName, password) :
     if userName in db:
         if db[userName]["PSWD"] == password :
@@ -10,7 +25,7 @@ def passchecker(userName, password) :
         else:
             return False
     else:
-        print("password incorrect")
+        print("not registered...")
         main()
 def main():
     registerState = input("Are you a registered user (y)es , (n)o : ")
@@ -28,7 +43,7 @@ def main():
             pscheckFlag = passchecker(userName,password)
             if pscheckFlag == True:
                 break
-        optionMenu()
+        optionMenu(userName,password)
 
 main()
 
