@@ -20,7 +20,7 @@ def optionMenu(userName):
                     print("available balance is : ", db[userName]["BLNC"] )
                     flag = False
                     #time 3s
-                    input()
+                    input("enter any key to continue ...")
                     optionMenu(userName)
                 else:
                     print("insufficient balance ...") 
