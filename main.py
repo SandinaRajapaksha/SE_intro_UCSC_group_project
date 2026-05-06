@@ -3,7 +3,15 @@ def addUserToDB(name,passw):
     db[name] = {"PSWD":passw,"BLNC": 0}
     print(db)
     
-    
+def passchecker(userName, password) :
+    if userName in db:
+        if db[userName]["PSWD"] == password :
+            return True
+        else:
+            return False
+    else:
+        print("password incorrect")
+        main()
 def main():
     registerState = input("Are you a registered user (y)es , (n)o : ")
     if registerState == "n" :
