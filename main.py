@@ -1,7 +1,6 @@
 db = {}
 def addUserToDB(name,passw):
     db[name] = {"PSWD":passw,"BLNC": 0}
-    print(db)
 
 def optionMenu(userName):
     option = input("enter option :")
