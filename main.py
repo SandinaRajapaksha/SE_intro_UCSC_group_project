@@ -1,6 +1,7 @@
 db = {}
 def addUserToDB(name,passw):
     db[name] = {"PSWD":passw,"BLNC": 0}
+    return
 
 def optionMenu(userName):
     print("\033[H\033[J", end="")
@@ -8,7 +9,7 @@ def optionMenu(userName):
     match option:
         case "s" : 
             print(db[userName]["BLNC"])
-            input("enter any key : ")
+            input("enter any key to continue ... ")
             optionMenu(userName)
         case "w" : 
             flag = True
