@@ -3,6 +3,7 @@ def addUserToDB(name,passw):
     db[name] = {"PSWD":passw,"BLNC": 0}
 
 def optionMenu(userName):
+    print("\033[H\033[J", end="")
     option = input("Enter option : \n (w)ithdraw\n (d)eposit\n (s)how balance\n (e)xit\n enter option : ")
     match option:
         case "s" : 
@@ -48,6 +49,8 @@ def passchecker(userName, password) :
         print("not registered...")
         main()
 def main():
+
+    print("\033[H\033[J", end="")
     registerState = input("Are you a registered user (y)es , (n)o : ")
     if registerState == "n" :
         Newusername = input("Enter new user name : ")
