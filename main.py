@@ -24,7 +24,14 @@ def optionMenu(userName):
                     optionMenu(userName)
                 else:
                     print("insufficient balance ...") 
-
+        
+        case "d" :
+            depositAmount = int(input("Enter amount to deposit : "))
+            db[userName]["BLNC"] = db[userName]["BLNC"] + depositAmount 
+            print("Deposit successful ...")
+            print("available balance is : ", db[userName]["BLNC"] )
+            input("Enter any key to continue ....")
+            optionMenu(userName)
         case _ : main()
 
 def passchecker(userName, password) :
