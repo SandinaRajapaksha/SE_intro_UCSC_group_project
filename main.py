@@ -54,7 +54,7 @@ def main():
     print("\033[H\033[J", end="")
     registerState = input("Are you a registered user (y)es , (n)o : ")
     if registerState == "n" :
-        Newusername = input("Enter new user name : ")
+        Newusername = input("Enter new user name : ").lower()
         Newpass = input("Enter new password : ")
         if Newusername in db:
             print("username already exist, press any key to continue ...")
