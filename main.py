@@ -4,7 +4,7 @@ def addUserToDB(name,passw):
     return
 
 def optionMenu(userName):
-    print("\033[H\033[J", end="")
+    print("\033[H\033[J", end="")  
     option = input("Enter option : \n (w)ithdraw\n (d)eposit\n (s)how balance\n (e)xit\n enter option : ")
     match option:
         case "s" : 
@@ -56,6 +56,10 @@ def main():
     if registerState == "n" :
         Newusername = input("Enter new user name : ")
         Newpass = input("Enter new password : ")
+        if Newusername in db:
+            print("username already exist, press any key to continue ...")
+            input()
+            main()
         addUserToDB(Newusername,Newpass)
         main()    
 
