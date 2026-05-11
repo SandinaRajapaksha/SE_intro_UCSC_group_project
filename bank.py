@@ -17,11 +17,12 @@ def optionMenu(userName):
         case "w" : 
             flag = True
             while flag:
-                withdrawAmount = int(input("Enter amount to withdraw : "))
+                withdrawAmount = input("Enter amount to withdraw : ")
                 if type(withdrawAmount) != int:
                     print("wrong input entered ...")
                     input("press any key to continue ...")
                     optionMenu(userName)
+                withdrawAmount = int(withdrawAmount)
                 if withdrawAmount <=  db[userName]["BLNC"] :
                     db[userName]["BLNC"] = db[userName]["BLNC"] - withdrawAmount
                     print("withdraw successfull, amount withdrawed : ",withdrawAmount)
@@ -36,11 +37,12 @@ def optionMenu(userName):
                     optionMenu(userName)
 
         case "d" :
-            depositAmount = int(input("Enter amount to deposit : "))
+            depositAmount = input("Enter amount to deposit : ")
             if type(depositAmount) != int:
                     print("wrong input entered ...")
                     input("press any key to continue ...")
                     optionMenu(userName)
+            depositAmount = int(depositAmount)
             db[userName]["BLNC"] = db[userName]["BLNC"] + depositAmount 
             print("Deposit successful ...")
             print("available balance is : ", db[userName]["BLNC"] )
