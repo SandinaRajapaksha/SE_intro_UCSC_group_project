@@ -61,6 +61,8 @@ def main():
             input()
             main()
         addUserToDB(Newusername,Newpass)
+        print("user registerd successfully, press any key to continue ...")
+        input()
         main()    
 
     elif registerState == "y" :
