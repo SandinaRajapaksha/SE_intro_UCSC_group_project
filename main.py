@@ -52,7 +52,7 @@ def passchecker(userName, password) :
 def main():
 
     print("\033[H\033[J", end="")
-    registerState = input("Are you a registered user (y)es , (n)o : ")
+    registerState = input("Are you a registered user (y)es , (n)o : ").lower()
     if registerState == "n" :
         Newusername = input("Enter new user name : ").lower()
         Newpass = input("Enter new password : ")
@@ -72,6 +72,10 @@ def main():
             if pscheckFlag == True:
                 break
         optionMenu(userName)
+    else:
+        print("invalid input, press any key to continue...")
+        input()
+        main()
 
 main()
 
