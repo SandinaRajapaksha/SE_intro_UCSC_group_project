@@ -20,7 +20,7 @@ def optionMenu(userName):
                     print("withdraw successfull, amount withdrawed : ",withdrawAmount)
                     print("available balance is : ", db[userName]["BLNC"] )
                     flag = False
-                    #time 3s
+                    #time 3
                     input("enter any key to continue ...")
                     optionMenu(userName)
                 else:
