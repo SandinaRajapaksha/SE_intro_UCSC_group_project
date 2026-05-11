@@ -25,6 +25,7 @@ def optionMenu(userName):
                     optionMenu(userName)
                 else:
                     print("insufficient balance ...") 
+                    input("Enter any key to continue ...")
                     optionMenu(userName)
 
         case "d" :
